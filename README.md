@@ -94,7 +94,7 @@ Calling Objects:
 
 ```javascript
 $ batMan.firstName
-:>"Tony"
+:>"Bruce"
 
 $ batMan["company"]
 :>"Wayne Enterprises"
@@ -165,8 +165,8 @@ var Person = function(name){
 }
 
 $ var bruce = new Person("Bruce")
-$ tony.defineThis
-:>Person {name: "Tony", defineThis: Person}
+$ bruce.defineThis
+:>Person {name: "Bruce", defineThis: Person}
 
 var OtherTypeOfPerson = function(name){
   this.name = name;
@@ -174,8 +174,8 @@ var OtherTypeOfPerson = function(name){
 }
 
 $ var ash = new OtherTypeOfPerson("Ash")
-$ jane.defineThis()
-:>Person {name: "Jane"}
+$ ash.defineThis()
+:>Person {name: "Ash"}
 
 ```
 ##### This Tips:
