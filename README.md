@@ -15,7 +15,7 @@
 | p "this is ruby"            | console.log("this is javascript")                     |                                                       |
 | [1,2].push(4) :> [1,2,4]    | [1,2].push(4) :> 3                                    | returns the length of the newly created array         |
 | a = 0                       | var a = 0                                             |                                                       |
-| a += 1 :> 1 //a == 1        | a++ :> 0 //a === 1                                    | (variable)++ adds one but returns the variable before |
+| a += 1 :> 1 :> a == 1       | a++ :> 0 :> a === 1                                   | (variable)++ adds one but returns the variable before |
 | | ++a :> returns 2, a === 2 | ++(variable) adds one to the variable then returns it |
 
 #### Variables
@@ -46,59 +46,70 @@ Declaring a Function:
      return "Hello, World."
    }
 
+ // IIFE -- immediately invoked function expression
  $ var x = (function(){
-    var p = "asdf"
+    var p = "asdf" // cannot access var p from the console. It's more protected!
     return function(input){
       return p === input
     }
-  })()    // IIFE -- immediately invoked function expression
-  // cannot access var p from the console. It's more protected!
+  })()
 
  //ES6 function notation, called Arrow Functions
  $ var x = (num) => { return num * num }
 ```
+
 Calling a Function:
 ```javascript
- $ sayHello // function (){ return "Hello, World." }
+ $ sayHello
+ :> function (){ return "Hello, World." }
 
- $ sayHello() // "Hello, World."
+ $ sayHello()
+ :> "Hello, World."
 
- $ x() // false
+ $ x()
+ :> false
 
- $ x("asdf") // true
+ $ x("asdf")
+ :> true
 ```
 #### Objects:
 
 Declaring Objects
 ```javascript
 // object literals
-var ironMan = {
-  firstName: "Tony",
-  lastName: "Stark",
-  company: "Stark Industries",
+var batMan = {
+  firstName: "Bruce",
+  lastName: "Wayne",
+  company: "Wayne Enterprises",
   greeting: function(name){
     return "Hello " + name
   }
 }
 
-ironMan.car = { make: "Tesla", year: 2015}
+batMan.car = { make: "Batmobile", year: 1966}
 
 ```
 
 Calling Objects:
 
 ```javascript
-ironMan.firstName // :>"Tony"
+$ batMan.firstName
+:>"Tony"
 
-ironMan["company"] // :>"Stark Industries"
+$ batMan["company"]
+:>"Wayne Enterprises"
 
-ironMan.greeting // :>function (name){return "Hello " + name}
+$ batMan.greeting
+:>function (name){return "Hello " + name}
 
-ironMan.greeting("Alfred") // :>"Hello Alfred"
+$ batMan.greeting("Alfred")
+:>"Hello Alfred"
 
-ironMan.car // :>Object {make: "Tesla", year: 2015}
+$ batMan.car
+:>Object {make: "Tesla", year: 2015}
 
-ironMan.car.make // :>"Tesla"
+$ batMan.car.make
+:>"Tesla"
 
 ```
 
@@ -114,19 +125,23 @@ var Person = function(firstName, lastName, gender){
   this.gender = gender
 }
 
-var ash = new Person("Ash", "Ketchum", "S")
+$ var ash = new Person("Ash", "Ketchum", "M")
 
-ash.profession = "Pokemon Master"
+$ ash.profession = "Pokemon Master"
 
-var tony = new Person("Tony", "Stark", "M")
-tony.profession // :>undefined
-ash.profession // :>"Author"
+$ var bruce = new Person("Bruce", "Wayne", "M")
+$ bruce.profession
+:>undefined
+
+$ ash.profession
+:>"Pokemon Master"
 
 Person.prototype.greeting = function(){
-  return "Hello, my name is " + this.firstName
+  return "Hello, my name is " + this.firstName + "."
 }
 
-ash.greeting() // :>"Hello, my name is Ash"
+$ ash.greeting()
+:>"Hello, my name is Ash."
 
 ```
 
@@ -141,23 +156,26 @@ var obj = {
   variable: "x"
 }
 
-obj.funct() // :>Object {variable: "x"}
+$ obj.funct()
+:>Object {variable: "x"}
 
 var Person = function(name){
   this.name = name;
   this.defineThis = this
 }
 
-var tony = new Person("Tony")
-tony.defineThis // :>Person {name: "Tony", defineThis: Person}
+$ var bruce = new Person("Bruce")
+$ tony.defineThis
+:>Person {name: "Tony", defineThis: Person}
 
 var OtherTypeOfPerson = function(name){
   this.name = name;
   this.defineThis = function(){return this}
 }
 
-var jane = new OtherTypeOfPerson("Jane")
-jane.defineThis() // Person {name: "Jane"}
+$ var ash = new OtherTypeOfPerson("Ash")
+$ jane.defineThis()
+:>Person {name: "Jane"}
 
 ```
 ##### This Tips:
