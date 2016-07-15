@@ -106,10 +106,10 @@ $ batMan.greeting("Alfred")
 :>"Hello Alfred"
 
 $ batMan.car
-:>Object {make: "Tesla", year: 2015}
+:>Object {make: "Batmobile", year: 1966}
 
 $ batMan.car.make
-:>"Tesla"
+:>"Batmobile"
 
 ```
 
@@ -126,10 +126,10 @@ var Person = function(firstName, lastName, gender){
 }
 
 $ var ash = new Person("Ash", "Ketchum", "M")
-
 $ ash.profession = "Pokemon Master"
 
 $ var bruce = new Person("Bruce", "Wayne", "M")
+
 $ bruce.profession
 :>undefined
 
@@ -142,6 +142,9 @@ Person.prototype.greeting = function(){
 
 $ ash.greeting()
 :>"Hello, my name is Ash."
+
+$ bruce.greeting()
+:>"Hello, my name is Bruce."
 
 ```
 
