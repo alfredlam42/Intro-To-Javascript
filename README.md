@@ -6,8 +6,8 @@
  - Primatives: String, int, boolean, null, undefined
  - Objects
 
-| Ruby            | JavaScript    | Explanation |
-| :-------------: |:-------------:|:----------------------------------:|
+| Ruby              | JavaScript      | Explanation |
+| :---------------: |:---------------:|:------------------------------:|
 | "4" == 4 :> false           | "4" == 4 :> true                                      | == is a type coersive, and a loose equality checker   |
 |                             | "4" === 4 :> false                                    | 4 === 4 :> true                                       |
 | falsys: nil, false          | falsys: null, undefined, 0, NaN, ""                   | null == undefined, but undefined != false             |
