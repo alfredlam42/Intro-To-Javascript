@@ -3,32 +3,32 @@
 ### Basics:
 
 #### Data types:
- - Primatives: String, nums, booleans, null, undefined
+ - Primatives: String, int, boolean, null, undefined
  - Objects
 
 | Ruby          | JavaScript    | Explanation |
-| ------------- |:-------------:|:------------------------------------:|
-|  "4" == 4 // false   | "4" == 4 // true | == is a type coersive, and a loose equality checker |
-| | "4" === 4 // false | 4 === 4 // true
-| falsys: nil, false    | falsys: null, undefined, 0, NaN, ""  | null == undefined, but undefined != false |
-| "My name is #{name}." | "My name is " + name + "." | JS does not have string interpolation |
-| p "this is ruby" | console.log("this is javascript") | |
-| [1,2].push(4) // [1,2,4] | [1,2].push(4) // 3 | returns the length of the newly created array |
-| a = 0 | var a = 0 | |
-| a += 1 // returns 1, a == 1 | a++ // returns 0, a === 1 | (variable)++ adds one but returns the variable before |
-| | ++a // returns 2, a === 2 | ++(variable) adds one to the variable then returns it |
+| :-----------: |:-------------:|:------------------------------------:|
+| "4" == 4 :> false           | "4" == 4 :> true                                      | == is a type coersive, and a loose equality checker   |
+|                             | "4" === 4 :> false                                    | 4 === 4 :> true                                       |
+| falsys: nil, false          | falsys: null, undefined, 0, NaN, ""                   | null == undefined, but undefined != false             |
+| "My name is #{name}."       | "My name is " + name + "."                            | JS does not have string interpolation                 |
+| p "this is ruby"            | console.log("this is javascript")                     |                                                       |
+| [1,2].push(4) :> [1,2,4]    | [1,2].push(4) :> 3                                    | returns the length of the newly created array         |
+| a = 0                       | var a = 0                                             |                                                       |
+| a += 1 :> 1 //a == 1        | a++ :> 0 //a === 1                                    | (variable)++ adds one but returns the variable before |
+| | ++a :> returns 2, a === 2 | ++(variable) adds one to the variable then returns it |
 
 #### Variables
 
 Declaring a Variable:
 ```javascript
- $ var firstName = "Jane"
+ $ var firstName = "Ash"
 
- $ var lastName = "Austen"
+ $ var lastName = "Ketchum"
 
  $ var name = firstName + " " + lastName
 
- $ var names; // creates a variable to be defined. If called you get undefined
+ $ var names; // creates a variable to be defined. If called you get undefined.
 
  $ var names = [];
  ```
@@ -47,11 +47,11 @@ Declaring a Function:
    }
 
  $ var x = (function(){
-    var p = "password"
-    return function(password){
-      return p === password
+    var p = "asdf"
+    return function(input){
+      return p === input
     }
-  })()    // IIFE -- immediately invoked function
+  })()    // IIFE -- immediately invoked function expression
   // cannot access var p from the console. It's more protected!
 
  //ES6 function notation, called Arrow Functions
@@ -65,7 +65,7 @@ Calling a Function:
 
  $ x() // false
 
- $ x("password") // true
+ $ x("asdf") // true
 ```
 #### Objects:
 
@@ -88,18 +88,17 @@ ironMan.car = { make: "Tesla", year: 2015}
 Calling Objects:
 
 ```javascript
-ironMan.firstName // "Tony"
+ironMan.firstName // :>"Tony"
 
-ironMan["company"] // "Stark Industries"
+ironMan["company"] // :>"Stark Industries"
 
-ironMan.greeting // function (name){
-    return "Hello " + name
-  }
+ironMan.greeting // :>function (name){return "Hello " + name}
 
-ironMan.greeting("Stephanie") // "Hello Stephanie"
+ironMan.greeting("Alfred") // :>"Hello Alfred"
 
-ironMan.car // Object {make: "Tesla", year: 2015}
-ironMan.car.make // "Tesla"
+ironMan.car // :>Object {make: "Tesla", year: 2015}
+
+ironMan.car.make // :>"Tesla"
 
 ```
 
@@ -115,19 +114,19 @@ var Person = function(firstName, lastName, gender){
   this.gender = gender
 }
 
-var jane = new Person("Jane", "Austen", "F")
+var ash = new Person("Ash", "Ketchum", "S")
 
-jane.profession = "Author"
+ash.profession = "Pokemon Master"
 
 var tony = new Person("Tony", "Stark", "M")
-tony.profession // undefined
-jane.profession // "Author"
+tony.profession // :>undefined
+ash.profession // :>"Author"
 
 Person.prototype.greeting = function(){
   return "Hello, my name is " + this.firstName
 }
 
-jane.greeting() // "Hello, my name is Jane"
+ash.greeting() // :>"Hello, my name is Ash"
 
 ```
 
@@ -142,7 +141,7 @@ var obj = {
   variable: "x"
 }
 
-obj.funct() // Object {variable: "x"}
+obj.funct() // :>Object {variable: "x"}
 
 var Person = function(name){
   this.name = name;
@@ -150,7 +149,7 @@ var Person = function(name){
 }
 
 var tony = new Person("Tony")
-tony.defineThis // Person {name: "Tony", defineThis: Person}
+tony.defineThis // :>Person {name: "Tony", defineThis: Person}
 
 var OtherTypeOfPerson = function(name){
   this.name = name;
@@ -193,7 +192,7 @@ for (var i = 0; i < h3.length; i++){
 
 <b>Think of an ajax reqest like an amazon order. </b>
 
-If your computer receives something in a format it is not expecting, it gets mad (ex: expecting HTML and gets back JSON). What am I supposed to do with spatulas? I ordered a whisk
+If your computer receives something in a format it is not expecting, it gets mad (ex: expecting HTML and gets back JSON). What am I supposed to do with spatulas? I ordered a whisk.
 
 If you send something to the database, like in a post request, and it's not in the format your backend is expecting, you'll get an error or failure. (ex: sending a single variable, but the backend expects full form of data). How am I supposed to understand this clingon character set? I speak English.
 
@@ -206,7 +205,7 @@ Things you need:
  - url
  - datatype you are expecting back (optional)
 
- #### Post Request:
+#### Post Request:
 
 You are changing things in the database.
 

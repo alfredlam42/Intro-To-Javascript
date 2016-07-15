@@ -28,9 +28,7 @@ var rachel = {
 console.log("Rachel: ")
 console.log(rachel)
 console.log(rachel.greeting) // without parenthesis
-console.log(rachel.greeting()) // actuall calling the function
-
-
+console.log(rachel.greeting()) // actually calling the function
 
 console.log("***** JavaScript Constructors *****")
 
@@ -43,21 +41,14 @@ var Dog = function(name, color, breed){
   }
 }
 
-
-
-
-
-
-
-
 console.log(Dog)
 try {
-  console.log(Dog.greeting()) // this
+  console.log(Dog.greeting())
 } catch(err) {
   console.log("Error! Dog is not an object, it is an object constructor")
 }
 
-// you have to make an instance of he
+// you have to make an instance of it
 var mary = new Dog("Marathon", "spotted", "border collie")
 console.log(mary)
 
@@ -68,8 +59,6 @@ console.log(lacie.name)
 
 var max = new Dog("Max", "black", "mutt", "hooligan") // too many arguments, no errors
 console.log(max)
-
-
 
 console.log("***** Protoypying *****")
 
