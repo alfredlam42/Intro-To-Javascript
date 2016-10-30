@@ -66,9 +66,19 @@ Dog.prototype.speak = function(){
   this.greeting()
 }
 
+Dog.prototype.age = 4;
+
 console.log("Max, speak!")
 max.speak()
+console.log('************')
+mary.speak()
+console.log(mary.age)
 console.log("Good dog.")
+
+alfred = new Dog()
+console.log('Alfred')
+console.log(alfred)
+console.log(alfred.age)
 
 
 
